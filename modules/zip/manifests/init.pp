@@ -1,8 +1,14 @@
 class zip {
   case $operatingsystem {
-    'Ubuntu', 'FreeBSD': {
+    'Ubuntu': {
       package { ["zip", "unzip"]:
-        ensure => installed,
+        ensure   => installed,
+      }
+    }
+    'FreeBSD': {
+      package { ["zip", "unzip"]:
+        ensure   => installed,
+        provider => pkgng,
       }
     }
   }
