@@ -32,7 +32,7 @@ class vagrant_installer::package::freebsd {
   file { $setup_dir:
     ensure  => directory,
     owner   => "root",
-    group   => "root",
+    group   => "wheel",
     mode    => "0755",
     require => Util::Recursive_directory[$setup_dir],
   }
@@ -45,7 +45,7 @@ class vagrant_installer::package::freebsd {
   file { "${setup_dir}/+MANIFEST":
     content => template("vagrant_installer/package/freebsd_pkgbuild.erb"),
     owner   => "root",
-    group   => "root",
+    group   => "wheel",
     mode    => "0644",
     require => File[$setup_dir],
   }

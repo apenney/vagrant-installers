@@ -39,7 +39,7 @@ class vagrant_installer::staging {
         command => "zip -r ${archive_path} ${archive_name}/",
         creates => $archive_path,
         cwd     => $staging_dir,
-        path    => ['/usr/bin/zip', '/usr/local/bin/zip'],
+        path    => ['/usr/bin', '/usr/local/bin'],
         require => [
           Class["zip"],
           Exec["copy-archive-contents"],
